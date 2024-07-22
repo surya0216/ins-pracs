@@ -4,13 +4,13 @@ def process_text(text):
   return list(text.upper().replace(" ",""))
 
 def generate_pool():
-  return list(string.ascii_uppercase)
+  return list(string.ascii_uppercase+string.digits)
 
 def genearte_shifted_pool(shift_value=3):
   pool = generate_pool()
   lst = []
   for i in range(len(pool)):
-    lst.append(pool[(i+shift_value)%(26)])
+    lst.append(pool[(i+shift_value)%(36)])
   return lst
 
 def ceaser_encrypt(plai_text, shift_value=3):
@@ -54,7 +54,8 @@ else:
     shift_vaule = int(shift_vaule)
   cipher_text = ceaser_encrypt(plain_text, shift_vaule)
   print(f"Plain Text: {plain_text} \nCipher Text: {cipher_text} \nShift Value = {shift_vaule}")
-
+# print(generate_pool())
+# print(genearte_shifted_pool())
 
 # cipher_text = ceaser_encrypt("surya")
 # original_text = ceaser_decrypt(cipher_text)
